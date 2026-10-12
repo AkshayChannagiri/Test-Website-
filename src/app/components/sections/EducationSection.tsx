@@ -19,10 +19,10 @@ export default function EducationSection({ education }: EducationSectionProps) {
         viewport={{ once: true }}
       >
         {education.title.split(education.highlight)[0]}
-        <span className="text-purple-400"> {education.highlight}</span>
+        <span className="text-[#F9F600]"> {education.highlight}</span>
       </motion.h2>
 
-      <div className="max-w-6xl mx-auto bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+      <div className="max-w-6xl mx-auto bg-gray-800/50 rounded-xl border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20">
         {education.items.map((item, index) => (
           <motion.div
             key={index}
@@ -37,23 +37,23 @@ export default function EducationSection({ education }: EducationSectionProps) {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div className="space-y-2">
                   <div>
-                    <h3 className="text-base md:text-lg font-semibold text-purple-400">{item.degree}</h3>
+                    <h3 className="text-base md:text-lg font-semibold text-[#F9F600]">{item.degree}</h3>
                     <p className="text-sm text-gray-300">{item.stream}</p>
                   </div>
                   
                   <div>
                     <h4 className="text-sm font-medium text-gray-200">{item.institute}</h4>
-                    <p className="text-sm text-purple-400 font-medium">{item.result}</p>
+                    <p className="text-sm text-[#F9F600] font-medium">{item.result}</p>
                   </div>
                 </div>
 
               <div className="flex flex-col gap-2 text-sm text-gray-400 md:text-right">
                 <div className="flex items-center gap-1 md:justify-end">
-                  <FiCalendar className="text-purple-400" />
+                  <FiCalendar className="text-[#F9F600]" />
                   <span>{item.duration}</span>
                 </div>
                 <div className="flex items-center gap-1 md:justify-end">
-                  <FiMapPin className="text-purple-400" />
+                  <FiMapPin className="text-[#F9F600]" />
                   <span>{item.location}</span>
                 </div>
               </div>

@@ -23,9 +23,9 @@ const InfoSection = ({ section }: { section: CustomSection }) => {
       {items.map((item: string, idx: number) => (
         <div
           key={`${section.id}-info-${idx}`}
-          className="flex items-start gap-3 rounded-lg border border-gray-700 bg-gray-800/60 p-4 transition-all duration-300 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
+          className="flex items-start gap-3 rounded-lg border border-gray-700 bg-gray-800/60 p-4 transition-all duration-300 hover:border-[#E0DC00] hover:shadow-lg hover:shadow-[#E0DC00]/20"
         >
-          <FiCheckCircle className="mt-1 h-5 w-5 text-purple-400" />
+          <FiCheckCircle className="mt-1 h-5 w-5 text-[#F9F600]" />
           <div className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed">{parseText(item)}</div>
         </div>
       ))}
@@ -48,7 +48,7 @@ const LinksSection = ({ section }: { section: CustomSection }) => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group rounded-xl border border-gray-700 bg-gradient-to-r from-gray-800/80 to-gray-800/40 px-5 py-4 transition-all duration-300 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
+          className="group rounded-xl border border-gray-700 bg-gradient-to-r from-gray-800/80 to-gray-800/40 px-5 py-4 transition-all duration-300 hover:border-[#E0DC00] hover:shadow-lg hover:shadow-[#E0DC00]/20"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -61,7 +61,7 @@ const LinksSection = ({ section }: { section: CustomSection }) => {
                 </p>
               )}
             </div>
-            <FiArrowUpRight className="h-6 w-6 text-purple-400 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <FiArrowUpRight className="h-6 w-6 text-[#F9F600] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </div>
         </a>
       ))}
@@ -73,7 +73,7 @@ const ButtonSection = ({ section }: { section: CustomSection }) => {
   const button = section.content?.button ?? section.content;
 
   return (
-    <div className="rounded-2xl border border-purple-500/30 bg-gradient-to-r from-purple-900/30 via-gray-900/50 to-gray-900/30 p-8 text-center">
+    <div className="rounded-2xl border border-[#E0DC00]/30 bg-gradient-to-r from-[#F9F600]/10 via-gray-900/50 to-gray-900/30 p-8 text-center">
       <p className="text-gray-200 text-base mb-6">
         {button?.description ?? "Stay in touch for collaborations, consulting, or speaking gigs."}
       </p>
@@ -81,7 +81,7 @@ const ButtonSection = ({ section }: { section: CustomSection }) => {
         href={button?.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center rounded-full bg-purple-500 px-6 py-3 font-semibold text-white shadow-lg shadow-purple-500/30 transition hover:shadow-purple-500/50"
+        className="inline-flex items-center justify-center rounded-full bg-[#E0DC00] px-6 py-3 font-semibold text-gray-900 shadow-lg shadow-[#E0DC00]/30 transition hover:shadow-[#E0DC00]/50"
       >
         {button?.label ?? "Learn more"}
       </a>
@@ -101,10 +101,10 @@ const NewsletterSection = ({ section }: { section: CustomSection }) => {
   const stats = config?.stats ?? [];
 
   return (
-    <div className="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900/80 via-gray-900/40 to-gray-900/70 p-8 shadow-2xl shadow-black/40 transition-all duration-300 hover:border-purple-500 hover:shadow-purple-500/40">
+    <div className="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900/80 via-gray-900/40 to-gray-900/70 p-8 shadow-2xl shadow-black/40 transition-all duration-300 hover:border-[#E0DC00] hover:shadow-[#E0DC00]/40">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
         <div className="flex-1">
-          <p className="text-xs uppercase tracking-[0.3em] text-purple-300">
+          <p className="text-xs uppercase tracking-[0.3em] text-[#FDFB45]">
             {section.eyebrow ?? "Newsletter"}
           </p>
           <h3 className="text-2xl font-semibold text-white mt-2">
@@ -122,7 +122,7 @@ const NewsletterSection = ({ section }: { section: CustomSection }) => {
           )}
         </div>
         <div className="flex-1 space-y-4">
-          <div className="rounded-xl bg-gray-800/70 p-4 border border-gray-700 transition-all duration-300 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20">
+          <div className="rounded-xl bg-gray-800/70 p-4 border border-gray-700 transition-all duration-300 hover:border-[#E0DC00] hover:shadow-lg hover:shadow-[#E0DC00]/20">
             <p className="text-sm text-gray-400 mb-2">
               {placeholder}
             </p>
@@ -130,7 +130,7 @@ const NewsletterSection = ({ section }: { section: CustomSection }) => {
               href={ctaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-purple-500 px-4 py-2 font-semibold text-white shadow-md shadow-purple-500/30 w-full"
+              className="inline-flex items-center justify-center rounded-lg bg-[#E0DC00] px-4 py-2 font-semibold text-gray-900 shadow-md shadow-[#E0DC00]/30 w-full"
             >
               {ctaLabel}
             </a>
@@ -145,7 +145,7 @@ const NewsletterSection = ({ section }: { section: CustomSection }) => {
           {stats.map((stat, idx) => (
             <div
               key={`${section.id}-stat-${idx}`}
-              className="rounded-xl border border-gray-700 bg-gray-900/60 p-4 text-center transition-all duration-300 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
+              className="rounded-xl border border-gray-700 bg-gray-900/60 p-4 text-center transition-all duration-300 hover:border-[#E0DC00] hover:shadow-lg hover:shadow-[#E0DC00]/20"
             >
               <p className="text-2xl font-bold text-white">{stat.value}</p>
               <p className="text-sm text-gray-400">{stat.label}</p>
@@ -190,7 +190,7 @@ export default function CustomSections({ section }: CustomSectionProps) {
           className="mb-8 text-center"
         >
           {section.eyebrow && (
-            <p className="text-xs uppercase tracking-[0.4em] text-purple-300 mb-3">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#FDFB45] mb-3">
               {section.eyebrow}
             </p>
           )}

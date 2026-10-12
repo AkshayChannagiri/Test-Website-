@@ -25,7 +25,7 @@ export default function ContactSection({ contact, contactForm }: ContactSectionP
         viewport={{ once: true }}
       >
         {contact.title.split(contact.highlight)[0]}
-        <span className="text-purple-400"> {contact.highlight}</span>
+        <span className="text-[#F9F600]"> {contact.highlight}</span>
       </motion.h2>
       <div className="flex flex-col md:flex-row gap-10">
         {showForm && (
@@ -47,19 +47,19 @@ export default function ContactSection({ contact, contactForm }: ContactSectionP
           viewport={{ once: true }}
         >
           {showEmail && (
-          <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">Email</h3>
+          <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20">
+            <h3 className="text-sm md:text-base font-semibold mb-2 text-[#F9F600]">Email</h3>
             <p className="text-sm text-gray-300">{contact.email}</p>
           </div>
           )}
           {showLocation && (
-          <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">Location</h3>
+          <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20">
+            <h3 className="text-sm md:text-base font-semibold mb-2 text-[#F9F600]">Location</h3>
             <p className="text-sm text-gray-300">{contact.location}</p>
           </div>
           )}
-          <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">Social</h3>
+          <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20">
+            <h3 className="text-sm md:text-base font-semibold mb-2 text-[#F9F600]">Social</h3>
             <div className="flex gap-4 mt-4">
               {contact.socialLinks.map((link: { name: string; url: string; icon: string }, index: number) => {
                 const IconComponent = iconComponents[link.icon];
@@ -69,7 +69,7 @@ export default function ContactSection({ contact, contactForm }: ContactSectionP
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition-colors"
+                    className="flex items-center gap-2 text-gray-300 hover:text-[#F9F600] transition-colors"
                   >
                     {IconComponent && <IconComponent className="w-5 h-5" />}
                   </a>

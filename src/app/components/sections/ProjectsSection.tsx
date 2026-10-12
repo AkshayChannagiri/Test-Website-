@@ -22,7 +22,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         viewport={{ once: true }}
       >
         {projects.title.split(projects.highlight)[0]}
-        <span className="text-purple-400"> {projects.highlight}</span>
+        <span className="text-[#F9F600]"> {projects.highlight}</span>
       </motion.h2>
 
       <div className="relative">

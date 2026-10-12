@@ -19,7 +19,7 @@ export default function QuoteSection({ quote }: QuoteSectionProps) {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-xl text-purple-400">{parseText(quote.text)}</h1>
+          <h1 className="text-xl text-[#F9F600]">{parseText(quote.text)}</h1>
         </motion.div>
       </div>
     </section>

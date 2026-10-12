@@ -124,7 +124,7 @@ const parseLinks = (text: string, keyPrefix: string): React.ReactNode => {
         href={match[2]}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-purple-400 hover:text-purple-300 underline transition-colors"
+        className="text-[#F9F600] hover:text-[#FDFB45] underline transition-colors"
       >
         {match[1]}
       </a>

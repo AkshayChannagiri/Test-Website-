@@ -37,8 +37,8 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
         style={{ y: y1, opacity }}
         className="absolute inset-0 opacity-10 pointer-events-none"
       >
-        <div className="absolute top-20 left-1/3 w-72 h-72 rounded-full bg-purple-600 blur-[120px]" />
-        <div className="absolute bottom-10 right-1/4 w-72 h-72 rounded-full bg-pink-600 blur-[120px]" />
+        <div className="absolute top-20 left-1/3 w-72 h-72 rounded-full bg-[#C9C400] blur-[120px]" />
+        <div className="absolute bottom-10 right-1/4 w-72 h-72 rounded-full bg-[#A8D117] blur-[120px]" />
       </motion.div>
 
       {/* Timeline line */}
@@ -48,7 +48,7 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
           whileInView={{ height: "100%" }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="w-px bg-gradient-to-b from-purple-500 via-pink-500 to-transparent"
+          className="w-px bg-gradient-to-b from-[#F9F600] via-[#D9F549] to-transparent"
         />
       </div>
 
@@ -69,7 +69,7 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/40 flex items-center justify-center"
+                className="w-5 h-5 rounded-full bg-gradient-to-br from-[#F9F600] to-[#D9F549] shadow-lg shadow-[#E0DC00]/40 flex items-center justify-center"
               >
                 <div className="w-2 h-2 rounded-full bg-white" />
               </motion.div>
@@ -81,12 +81,12 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
                 y: -4,
               }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="w-full bg-gray-800/50 border border-gray-700 rounded-2xl px-6 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 backdrop-blur-sm transition-all duration-300 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
+              className="w-full bg-gray-800/50 border border-gray-700 rounded-2xl px-6 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 backdrop-blur-sm transition-all duration-300 hover:border-[#E0DC00] hover:shadow-lg hover:shadow-[#E0DC00]/20"
             >
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
                   <h3 className="text-lg md:text-xl font-semibold text-white">{exp.title}</h3>
-                  <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-medium mt-1">
+                  <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#F9F600] to-[#D9F549] font-medium mt-1">
                     {exp.company}
                   </p>
                 </div>

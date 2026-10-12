@@ -68,15 +68,15 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
                 scale: currentIndex === index ? 1 : 0.9
               }}
               transition={{ duration: 0.5 }}
-              className="bg-gray-800/50 rounded-xl border border-gray-700 p-6 shadow-lg transition-all duration-300 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
+              className="bg-gray-800/50 rounded-xl border border-gray-700 p-6 shadow-lg transition-all duration-300 hover:border-[#E0DC00] hover:shadow-lg hover:shadow-[#E0DC00]/20"
             >
-              <h3 className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
+              <h3 className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F9F600] to-[#D9F549] mb-2">
                 {project.title}
               </h3>
               <div className="text-sm sm:text-base md:text-lg text-gray-300 mb-4">{parseText(project.description)}</div>
 
               <div className="mb-4">
-                <h4 className="text-xs font-semibold text-purple-400 mb-1">Technologies:</h4>
+                <h4 className="text-xs font-semibold text-[#F9F600] mb-1">Technologies:</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech: any, i: any) => (
                     <span
@@ -90,7 +90,7 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
               </div>
 
               <div className="mb-4">
-                <span className="text-xs font-semibold text-purple-400">Concepts:</span>
+                <span className="text-xs font-semibold text-[#F9F600]">Concepts:</span>
                 <span className="text-xs text-gray-300 ml-2">{project.type}</span>
               </div>
 
@@ -99,7 +99,7 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                  className="inline-flex items-center text-sm text-[#F9F600] hover:text-[#FDFB45] transition-colors"
                 >
                   <FiGithub className="mr-2" />
                   View on GitHub
@@ -112,7 +112,7 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
 
       <button
         onClick={prevProject}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/20 p-2 rounded-full border border-gray-700 hover:border-purple-500 transition-all z-10"
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-[#C9C400]/20 p-2 rounded-full border border-gray-700 hover:border-[#E0DC00] transition-all z-10"
         aria-label="Previous project"
       >
         <FiChevronLeft className="w-4 h-18" />
@@ -120,7 +120,7 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
 
       <button
         onClick={nextProject}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/20 p-2 rounded-full border border-gray-700 hover:border-purple-500 transition-all z-10"
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-[#C9C400]/20 p-2 rounded-full border border-gray-700 hover:border-[#E0DC00] transition-all z-10"
         aria-label="Next project"
       >
         <FiChevronRight className="w-18 h-18" />
@@ -131,7 +131,7 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? 'bg-purple-500 w-6' : 'bg-gray-700'}`}
+            className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? 'bg-[#E0DC00] w-6' : 'bg-gray-700'}`}
             aria-label={`Go to project ${index + 1}`}
           />
         ))}

@@ -81,7 +81,7 @@ export default function PublicationsSection({ publications }: PublicationsSectio
           viewport={{ once: true }}
         >
           {titleBefore}
-          {highlightIndex >= 0 && <span className="text-purple-400">{publications.highlight}</span>}
+          {highlightIndex >= 0 && <span className="text-[#F9F600]">{publications.highlight}</span>}
           {titleAfter}
         </motion.h2>
 
@@ -89,7 +89,7 @@ export default function PublicationsSection({ publications }: PublicationsSectio
           {displayedItems.map((publication, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800/50 rounded-xl p-3 md:p-4 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+              className="bg-gray-800/50 rounded-xl p-3 md:p-4 border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -104,7 +104,7 @@ export default function PublicationsSection({ publications }: PublicationsSectio
                 {/* Content Section */}
                 <div className="flex-1 min-w-0 space-y-1.5">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <h3 className="text-base font-semibold text-white hover:text-purple-300 transition-colors">
+                    <h3 className="text-base font-semibold text-white hover:text-[#FDFB45] transition-colors">
                       <a
                         href={publication.url}
                         target="_blank"
@@ -112,7 +112,7 @@ export default function PublicationsSection({ publications }: PublicationsSectio
                         className="flex items-center gap-2 group"
                       >
                         {publication.title}
-                        <FiExternalLink className="w-4 h-4 text-purple-300" aria-hidden="true" />
+                        <FiExternalLink className="w-4 h-4 text-[#FDFB45]" aria-hidden="true" />
                       </a>
                     </h3>
                     <span className="text-xs tracking-wide uppercase text-gray-400 bg-gray-800/80 px-3 py-1 rounded-full hidden md:inline-block">
@@ -130,7 +130,7 @@ export default function PublicationsSection({ publications }: PublicationsSectio
                       {publication.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="text-[11px] bg-purple-900/20 text-purple-200 px-2.5 py-0.5 rounded-full"
+                          className="text-[11px] bg-[#F9F600]/20 text-[#FEFEA6] px-2.5 py-0.5 rounded-full"
                         >
                           {tag}
                         </span>
@@ -160,7 +160,7 @@ export default function PublicationsSection({ publications }: PublicationsSectio
             <button
               type="button"
               onClick={handleShowMoreClick}
-              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+              className="inline-flex items-center gap-2 text-[#F9F600] hover:text-[#FDFB45] transition-colors"
               disabled={isNavigating}
             >
               {showMoreText}

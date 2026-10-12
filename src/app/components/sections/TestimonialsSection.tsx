@@ -69,7 +69,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
         viewport={{ once: true }}
       >
         {testimonials.title.split(testimonials.highlight)[0]}
-        <span className="text-purple-400"> {testimonials.highlight}</span>
+        <span className="text-[#F9F600]"> {testimonials.highlight}</span>
       </motion.h2>
 
       <div 
@@ -84,25 +84,25 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+          className="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-[#E0DC00] p-6 transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20"
         >
           <div className="flex items-start gap-4">
             <div className="flex-1">
               <div className="text-sm sm:text-base md:text-lg text-gray-300 italic mb-4">"{parseText(testimonials.items[currentIndex].message)}"</div>
               <div className="flex items-center gap-3">
                 <div 
-                  className="w-[40px] h-[40px] rounded-full border-2 border-purple-400 bg-purple-500/20 flex items-center justify-center text-sm font-semibold text-purple-400 flex-shrink-0"
+                  className="w-[40px] h-[40px] rounded-full border-2 border-[#F9F600] bg-[#E0DC00]/20 flex items-center justify-center text-sm font-semibold text-[#F9F600] flex-shrink-0"
                 >
                   {getInitials(testimonials.items[currentIndex].receivedFrom)}
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-purple-400">{testimonials.items[currentIndex].receivedFrom}</h4>
+                  <h4 className="text-sm font-medium text-[#F9F600]">{testimonials.items[currentIndex].receivedFrom}</h4>
                   <p className="text-xs text-gray-400">{testimonials.items[currentIndex].designation}</p>
                   <a
                     href={`https://www.linkedin.com/in/${testimonials.items[currentIndex].linkedinUserName}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-purple-400 hover:text-purple-300 transition-colors mt-1 inline-block"
+                    className="text-xs text-[#F9F600] hover:text-[#FDFB45] transition-colors mt-1 inline-block"
                   >
                     View Profile
                   </a>
@@ -115,14 +115,14 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
         {/* Navigation Buttons */}
         <button
           onClick={previousTestimonial}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-gray-800/90 hover:bg-gray-700 text-purple-400 p-2 rounded-full border border-purple-500/30 hover:border-purple-500 transition-all"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-gray-800/90 hover:bg-gray-700 text-[#F9F600] p-2 rounded-full border border-[#E0DC00]/30 hover:border-[#E0DC00] transition-all"
           aria-label="Previous testimonial"
         >
           <FiChevronLeft size={24} />
         </button>
         <button
           onClick={nextTestimonial}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-gray-800/90 hover:bg-gray-700 text-purple-400 p-2 rounded-full border border-purple-500/30 hover:border-purple-500 transition-all"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-gray-800/90 hover:bg-gray-700 text-[#F9F600] p-2 rounded-full border border-[#E0DC00]/30 hover:border-[#E0DC00] transition-all"
           aria-label="Next testimonial"
         >
           <FiChevronRight size={24} />
@@ -136,7 +136,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-all ${
                 index === currentIndex 
-                  ? 'bg-purple-400 w-4' 
+                  ? 'bg-[#F9F600] w-4' 
                   : 'bg-gray-600 hover:bg-gray-500'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}

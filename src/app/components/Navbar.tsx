@@ -78,7 +78,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className={`text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent`}>
+            <span className={`text-xl font-bold bg-gradient-to-r from-[#F9F600] to-[#D9F549] bg-clip-text text-transparent`}>
               {logo.text}
             </span>
           </motion.a>
@@ -103,7 +103,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
                   {isActive && (
                     <motion.div
                       layoutId="navIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#F9F600] to-[#D9F549]"
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     />
                   )}
@@ -122,7 +122,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-gray-300 hover:text-purple-400 transition-colors"
+                  className="p-2 text-gray-300 hover:text-[#F9F600] transition-colors"
                   aria-label={social.name}
                 >
                   {IconComponent && <IconComponent className="w-5 h-5" />}
@@ -190,15 +190,15 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
                         onClick={() => setMenuOpen(false)}
                         className={`flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-colors ${
                           isActive
-                            ? "border-purple-500/70 bg-purple-500/10 text-white"
-                            : "border-gray-800 bg-gray-900/70 text-gray-300 hover:border-purple-500/40 hover:text-white"
+                            ? "border-[#E0DC00]/70 bg-[#E0DC00]/10 text-white"
+                            : "border-gray-800 bg-gray-900/70 text-gray-300 hover:border-[#E0DC00]/40 hover:text-white"
                         }`}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.03 * idx }}
                       >
                         <span>{item.label}</span>
-                        <FiArrowUpRight className="h-4 w-4 text-purple-400" />
+                        <FiArrowUpRight className="h-4 w-4 text-[#F9F600]" />
                       </motion.a>
                     );
                   })}
@@ -212,7 +212,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
                           href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-800 text-gray-300 transition hover:border-purple-500/50 hover:text-white"
+                          className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-800 text-gray-300 transition hover:border-[#E0DC00]/50 hover:text-white"
                           aria-label={social.name}
                         >
                           {IconComponent && <IconComponent className="h-5 w-5" />}

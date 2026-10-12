@@ -22,7 +22,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
         viewport={{ once: true }}
       >
         {experience.title.split(experience.highlight)[0]}
-        <span className="text-purple-400"> {experience.highlight}</span>
+        <span className="text-[#F9F600]"> {experience.highlight}</span>
       </motion.h2>
       <Suspense fallback={<div>Loading...</div>}>
         <ExperienceTimeline experiences={experience.items} />

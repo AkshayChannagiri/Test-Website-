@@ -17,7 +17,7 @@ export default function Loading({ text = "Crafting Portfolio" }: LoadingProps) {
           {circles.map((i) => (
             <motion.div
               key={i}
-              className="w-3 h-3 bg-purple-500 rounded-full"
+              className="w-3 h-3 bg-[#E0DC00] rounded-full"
               animate={{
                 height: [8, 24, 8],
               }}

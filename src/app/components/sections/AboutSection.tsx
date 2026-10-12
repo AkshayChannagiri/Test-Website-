@@ -33,13 +33,13 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
             onHoverStart={() => setIsHoveringAvatar(true)}
             onHoverEnd={() => setIsHoveringAvatar(false)}
           >
-            <div className="w-full h-full rounded-full overflow-visible relative z-10 shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+            <div className="w-full h-full rounded-full overflow-visible relative z-10 shadow-lg hover:shadow-[#E0DC00]/30 transition-all duration-300">
               <div className="absolute left-1/2 transform -translate-x-1/2 w-[100%] h-[100%] ">
                 <Image
                   src={intro.avatar.image}
                   alt={intro.avatar.alt}
                   fill
-                  className="object-cover object-top rounded-full ring-2 shadow-xl hover:ring-purple-500 transition-all duration-300"
+                  className="object-cover object-top rounded-full ring-2 shadow-xl hover:ring-[#E0DC00] transition-all duration-300"
                   style={{
                     transform: isHoveringAvatar ? "translateY(-10%) scale(1.05)" : "",
                     
@@ -51,7 +51,7 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
             <AnimatePresence>
               {isHoveringAvatar && (
                 <motion.div
-                  className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-pink-400/30 z-0"
+                  className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-[#D9F549]/30 z-0"
                   initial={{ scale: 1, opacity: 0 }}
                   animate={{ scale: 1.2, opacity: 0.4 }}
                   exit={{ scale: 1, opacity: 0 }}
@@ -59,7 +59,7 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
               )}
             </AnimatePresence>
             <motion.div
-              className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-pink-400/30 z-0"
+              className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-[#D9F549]/30 z-0"
               animate={{
                 scale: [1, 1.05, 1],
                 opacity: [0.3, 0.5, 0.3]
@@ -71,7 +71,7 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
               }}
             />
             <motion.div
-              className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-purple-400/20 z-0"
+              className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-[#F9F600]/20 z-0"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.2, 0.4, 0.2]
@@ -94,7 +94,7 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 lg:mb-4">
               <motion.span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-[#F9F600] to-[#D9F549]"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%"],
                 }}
@@ -141,7 +141,7 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
               href={intro.cta.resumeUrl}
               download={intro.cta.resumeFileName}
               onClick={() => trackDownload(tracking)}
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white font-medium hover:opacity-90 transition-all text-sm shadow-lg hover:shadow-purple-500/50"
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#F9F600] to-[#D9F549] rounded-lg text-gray-900 font-medium hover:opacity-90 transition-all text-sm shadow-lg hover:shadow-[#E0DC00]/50"
             >
               <FiDownload className="w-4 h-4" />
               {intro.cta.buttonText}
@@ -156,7 +156,7 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-gray-800 hover:bg-purple-600/20 hover:text-purple-400 transition-all border border-gray-700 hover:border-purple-500"
+                    className="p-2 rounded-full bg-gray-800 hover:bg-[#C9C400]/20 hover:text-[#F9F600] transition-all border border-gray-700 hover:border-[#E0DC00]"
                   >
                     {IconComponent && <IconComponent className="w-5 h-5" />}
                   </a>
@@ -181,9 +181,9 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 text-center hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+              className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 text-center hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20"
             >
-              <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+              <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F9F600] to-[#D9F549]">
                 {stat.value}
               </p>
               <p className="text-sm text-gray-400 mt-1">{stat.label}</p>

@@ -26,7 +26,7 @@ const DefaultCertificateIcon = () => (
     viewBox="0 0 40 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="text-purple-400"
+    className="text-[#F9F600]"
   >
     <path
       d="M8 6C6.89543 6 6 6.89543 6 8V32C6 33.1046 6.89543 34 8 34H32C33.1046 34 34 33.1046 34 32V8C34 6.89543 33.1046 6 32 6H8Z"
@@ -58,8 +58,8 @@ function CertificationCard({ cert, isFullWidth = false }: CertificationCardProps
   const hasValidUrl = cert.url && cert.url.trim() !== '' && isValidUrl(cert.url);
 
   const CertContent = (
-    <div className="flex items-center gap-4 p-4 bg-gray-900/40 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-      <div className="bg-purple-500/10 p-3 rounded-lg border border-purple-500/30 flex items-center justify-center min-w-[64px] min-h-[64px]">
+    <div className="flex items-center gap-4 p-4 bg-gray-900/40 rounded-lg border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20">
+      <div className="bg-[#E0DC00]/10 p-3 rounded-lg border border-[#E0DC00]/30 flex items-center justify-center min-w-[64px] min-h-[64px]">
         {showDefaultIcon ? (
           <DefaultCertificateIcon />
         ) : (
@@ -110,7 +110,7 @@ export default function AchievementsSection({ achievements }: AchievementsSectio
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        {achievements.highlight} & <span className="text-purple-400">Achievements</span>
+        {achievements.highlight} & <span className="text-[#F9F600]">Achievements</span>
       </motion.h2>
 
       <motion.div
@@ -118,11 +118,11 @@ export default function AchievementsSection({ achievements }: AchievementsSectio
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+        className="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-[#E0DC00] p-6 transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20"
       >
         <div className="space-y-6">
           <div className="space-y-4">
-            <h3 className="text-sm md:text-base font-semibold text-purple-400">Achievements</h3>
+            <h3 className="text-sm md:text-base font-semibold text-[#F9F600]">Achievements</h3>
             <ul className="space-y-3 list-disc list-outside ml-5 pl-2 text-sm sm:text-base md:text-lg text-gray-300">
               {achievements.description.map((item: string, index: number) => (
                 <li key={index}>{parseText(item)}</li>
@@ -131,7 +131,7 @@ export default function AchievementsSection({ achievements }: AchievementsSectio
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm md:text-base font-semibold text-purple-400">Certifications</h3>
+            <h3 className="text-sm md:text-base font-semibold text-[#F9F600]">Certifications</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {achievements.certifications.map((cert: PortfolioData["achievements"]["certifications"][number], index: number) => {
                 const isLastItem = index === achievements.certifications.length - 1;

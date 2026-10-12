@@ -13,7 +13,7 @@ export default function BackgroundAnimation({ backgroundX, backgroundY, codeElem
       <motion.div
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: "radial-gradient(circle at center, rgba(139, 92, 246, 0.2) 0%, transparent 70%)",
+          backgroundImage: "radial-gradient(circle at center, rgba(249, 246, 0, 0.12) 0%, transparent 70%)",
           x: backgroundX,
           y: backgroundY
         }}

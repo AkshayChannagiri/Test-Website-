@@ -46,13 +46,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(139, 92, 246);
+  background-color: rgb(249, 246, 0);
   border-radius: 5px;
   transition: background-color 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(124, 58, 237);
+  background-color: rgb(217, 208, 0);
 }
 
 ::-webkit-scrollbar-track {
@@ -63,5 +63,5 @@ body {
 /* Firefox scrollbar styling */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(139, 92, 246) rgb(17, 24, 39);
+  scrollbar-color: rgb(249, 246, 0) rgb(17, 24, 39);
 }

@@ -142,7 +142,7 @@ const ContactForm = ({
             required
             className={`w-full px-4 py-3 bg-gray-800 border ${
               errors.name ? "border-red-500" : "border-gray-700"
-            } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all`}
+            } rounded-lg focus:ring-2 focus:ring-[#E0DC00] focus:border-transparent outline-none transition-all`}
           />
           {errors.name && (
             <motion.p 
@@ -172,7 +172,7 @@ const ContactForm = ({
             required
             className={`w-full px-4 py-3 bg-gray-800 border ${
               errors.email ? "border-red-500" : "border-gray-700"
-            } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all`}
+            } rounded-lg focus:ring-2 focus:ring-[#E0DC00] focus:border-transparent outline-none transition-all`}
           />
           {errors.email && (
             <motion.p 
@@ -199,7 +199,7 @@ const ContactForm = ({
           value={formData.phone}
           onChange={handleChange}
           placeholder={formFields.phone.placeholder}
-          className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+          className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#E0DC00] focus:border-transparent outline-none transition-all"
         />
       </div>
       <div>
@@ -220,7 +220,7 @@ const ContactForm = ({
           required
           className={`w-full px-4 py-3 bg-gray-800 border ${
             errors.subject ? "border-red-500" : "border-gray-700"
-          } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all`}
+          } rounded-lg focus:ring-2 focus:ring-[#E0DC00] focus:border-transparent outline-none transition-all`}
         />
         {errors.subject && (
           <motion.p 
@@ -256,7 +256,7 @@ const ContactForm = ({
           maxLength={1000}
           className={`w-full px-4 py-3 bg-gray-800 border ${
             errors.message ? "border-red-500" : "border-gray-700"
-          } rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all`}
+          } rounded-lg focus:ring-2 focus:ring-[#E0DC00] focus:border-transparent outline-none transition-all`}
         ></textarea>
         {errors.message && (
           <motion.p 
@@ -274,7 +274,7 @@ const ContactForm = ({
           disabled={isSubmitting}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className={`w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white font-medium flex items-center justify-center gap-2 ${
+          className={`w-full px-6 py-3 bg-gradient-to-r from-[#F9F600] to-[#D9F549] rounded-lg text-gray-900 font-medium flex items-center justify-center gap-2 ${
             isSubmitting ? "opacity-70" : "hover:opacity-90"
           } transition-all`}
         >

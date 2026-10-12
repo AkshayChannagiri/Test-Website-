@@ -136,7 +136,7 @@ export default function PublicationsPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+              className="inline-flex items-center gap-2 text-[#F9F600] hover:text-[#FDFB45] transition-colors"
             >
               <FiArrowLeft className="w-4 h-4" />
               Back to Home
@@ -157,7 +157,7 @@ export default function PublicationsPage() {
               return (
                 <>
                   {titleBefore}
-                  {highlightIndex >= 0 && <span className="text-purple-400">{publications.highlight}</span>}
+                  {highlightIndex >= 0 && <span className="text-[#F9F600]">{publications.highlight}</span>}
                   {titleAfter}
                 </>
               );
@@ -169,7 +169,7 @@ export default function PublicationsPage() {
             {publications.items.map((publication, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 rounded-xl p-4 md:p-5 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+                className="bg-gray-800/50 rounded-xl p-4 md:p-5 border border-gray-700 hover:border-[#E0DC00] transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -184,7 +184,7 @@ export default function PublicationsPage() {
                   {/* Content Section */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                      <h3 className="text-base md:text-lg font-semibold text-white hover:text-purple-400 transition-colors">
+                      <h3 className="text-base md:text-lg font-semibold text-white hover:text-[#F9F600] transition-colors">
                         <a
                           href={publication.url}
                           target="_blank"
@@ -192,7 +192,7 @@ export default function PublicationsPage() {
                           className="flex items-center gap-2 group"
                         >
                           {publication.title}
-                          <FiExternalLink className="w-4 h-4 text-purple-300" aria-hidden="true" />
+                          <FiExternalLink className="w-4 h-4 text-[#FDFB45]" aria-hidden="true" />
                         </a>
                       </h3>
                       <span className="text-xs tracking-wide uppercase text-gray-400 bg-gray-800/80 px-3 py-1 rounded-full hidden md:inline-block border border-gray-700">
@@ -210,7 +210,7 @@ export default function PublicationsPage() {
                         {publication.tags.map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
-                            className="text-xs bg-purple-900/30 text-purple-300 px-2 py-1 rounded"
+                            className="text-xs bg-[#F9F600]/30 text-[#FDFB45] px-2 py-1 rounded"
                           >
                             {tag}
                           </span>

@@ -18,7 +18,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
         viewport={{ once: true }}
       >
         {skills.title.split(skills.highlight)[0]}
-        <span className="text-purple-400"> {skills.highlight}</span>
+        <span className="text-[#F9F600]"> {skills.highlight}</span>
       </motion.h2>
 
       <motion.div
@@ -26,14 +26,14 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-purple-500 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+        className="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-[#E0DC00] p-6 transition-all duration-300 hover:shadow-lg hover:shadow-[#E0DC00]/20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {skills.categories.map((category: PortfolioData["skills"]["categories"][number], catIndex: number) => (
             <div key={catIndex} className="space-y-3">
-              <h3 className="text-sm md:text-base font-semibold text-purple-400">
+              <h3 className="text-sm md:text-base font-semibold text-[#F9F600]">
                 {category.name.split(category.highlight)[0]}
-                <span className="text-purple-400"> {category.highlight}</span>
+                <span className="text-[#F9F600]"> {category.highlight}</span>
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.items.map((skill: string, i: number) => (
