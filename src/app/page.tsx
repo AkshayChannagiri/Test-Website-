@@ -1,84 +1,41 @@
-"use client";
-
-import { useScroll, useTransform } from "framer-motion";
-import { useState, useEffect } from "react";
-import Script from 'next/script';
+import type { Metadata } from "next";
+import Script from "next/script";
+import React from "react";
+import { getPortfolioData } from "./lib/getPortfolioData";
 import type { PortfolioData } from "./types/portfolio-data.type";
-import { useActiveSection } from "./hooks/useActiveSection";
-import { trackVisit } from "./functions/TrackVisit";
-import Loading from "./components/Loading";
 import Navbar from "./components/Navbar";
+import ScrollBackground from "./components/ScrollBackground";
+import VisitTracker from "./components/VisitTracker";
 import { AboutSection } from "./components/sections";
-import dynamic from "next/dynamic";
-import React, { Suspense } from "react";
+import SkillsSection from "./components/sections/SkillsSection";
+import PublicationsSection from "./components/sections/PublicationsSection";
+import ExperienceSection from "./components/sections/ExperienceSection";
+import EducationSection from "./components/sections/EducationSection";
+import ProjectsSection from "./components/sections/ProjectsSection";
+import AchievementsSection from "./components/sections/AchievementsSection";
+import TestimonialsSection from "./components/sections/TestimonialsSection";
+import ContactSection from "./components/sections/ContactSection";
+import QuoteSection from "./components/sections/QuoteSection";
+import FooterSection from "./components/sections/FooterSection";
+import CustomSections from "./components/sections/CustomSections";
 
-const SkillsSection = dynamic(() => import("./components/sections/SkillsSection"), { ssr: false, loading: () => <div /> });
-const PublicationsSection = dynamic(() => import("./components/sections/PublicationsSection"), { ssr: false, loading: () => <div /> });
-const ExperienceSection = dynamic(() => import("./components/sections/ExperienceSection"), { ssr: false, loading: () => <div /> });
-const EducationSection = dynamic(() => import("./components/sections/EducationSection"), { ssr: false, loading: () => <div /> });
-const ProjectsSection = dynamic(() => import("./components/sections/ProjectsSection"), { ssr: false, loading: () => <div /> });
-const AchievementsSection = dynamic(() => import("./components/sections/AchievementsSection"), { ssr: false, loading: () => <div /> });
-const ContactSection = dynamic(() => import("./components/sections/ContactSection"), { ssr: false, loading: () => <div /> });
-const QuoteSection = dynamic(() => import("./components/sections/QuoteSection"), { ssr: false, loading: () => <div /> });
-const FooterSection = dynamic(() => import("./components/sections/FooterSection"), { ssr: false, loading: () => <div /> });
-const CustomSections = dynamic(() => import("./components/sections/CustomSections"), { ssr: false, loading: () => <div /> });
-const BackgroundAnimation = dynamic(() => import("./components/sections/BackgroundAnimation"), { ssr: false, loading: () => <div /> });
-const TestimonialsSection = dynamic(() => import("./components/sections/TestimonialsSection"), { ssr: false, loading: () => <div /> });
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getPortfolioData();
 
-export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const [data, setData] = useState<PortfolioData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const activeSection = useActiveSection(data);
+  return {
+    title: data.meta.title,
+    description: data.meta.description,
+    icons: data.meta.favicon ? { icon: data.meta.favicon } : undefined,
+    openGraph: {
+      title: data.meta.title,
+      description: data.meta.description,
+      type: "website",
+    },
+  };
+}
 
-  // Background gradient animation
-  const backgroundX = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 50]);
-
-  // Fetch data
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-        const url = process.env.NEXT_PUBLIC_PORTFOLIO_DATA_URL ?? `${basePath}/archived/data.json`;
-        
-        const response = await fetch(url!);
-        if (!response.ok) throw new Error('Failed to fetch data');
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const hasTrackedVisit = sessionStorage.getItem('hasTrackedVisit');
-    if (!hasTrackedVisit && data?.tracking?.enabled) {
-      trackVisit(data.tracking);
-      sessionStorage.setItem('hasTrackedVisit', 'true');
-    }
-  }, [data]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <Loading />
-      </div>
-    );
-  }
-
-  if (!data) {
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-white text-xl">Failed to load data. Please try again later.</div>
-      </div>
-    );
-  }
+export default async function HomePage() {
+  const data = await getPortfolioData();
 
   const sectionsToRender: Array<{ id: string; index: number; element: React.ReactNode }> = [];
   const resolveIndex = (value?: number) =>
@@ -121,99 +78,63 @@ export default function Home() {
     enabled: data.skills.enabled,
     id: "skills",
     index: data.skills.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <SkillsSection skills={data.skills} />
-      </Suspense>
-    ),
+    element: <SkillsSection skills={data.skills} />,
   });
 
   addSection({
     enabled: data.publications.enabled,
     id: "publications",
     index: data.publications.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <PublicationsSection publications={data.publications} />
-      </Suspense>
-    ),
+    element: <PublicationsSection publications={data.publications} />,
   });
 
   addSection({
     enabled: data.experience.enabled,
     id: "experience",
     index: data.experience.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <ExperienceSection experience={data.experience} />
-      </Suspense>
-    ),
+    element: <ExperienceSection experience={data.experience} />,
   });
 
   addSection({
     enabled: data.education.enabled,
     id: "education",
     index: data.education.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <EducationSection education={data.education} />
-      </Suspense>
-    ),
+    element: <EducationSection education={data.education} />,
   });
 
   addSection({
     enabled: data.projects.enabled,
     id: "portfolio",
     index: data.projects.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <ProjectsSection projects={data.projects} />
-      </Suspense>
-    ),
+    element: <ProjectsSection projects={data.projects} />,
   });
 
   addSection({
     enabled: data.achievements.enabled,
     id: "achievements",
     index: data.achievements.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <AchievementsSection achievements={data.achievements} />
-      </Suspense>
-    ),
+    element: <AchievementsSection achievements={data.achievements} />,
   });
 
   addSection({
     enabled: data.testimonials.enabled,
     id: "testimonials",
     index: data.testimonials.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <TestimonialsSection testimonials={data.testimonials} />
-      </Suspense>
-    ),
+    element: <TestimonialsSection testimonials={data.testimonials} />,
   });
 
   addSection({
     enabled: data.contact.enabled,
     id: "contact",
     index: data.contact.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <ContactSection contact={data.contact} contactForm={data.contactForm} />
-      </Suspense>
-    ),
+    element: <ContactSection contact={data.contact} contactForm={data.contactForm} />,
   });
 
   addSection({
     enabled: data.quote.enabled,
     id: "quote",
     index: data.quote.index,
-    element: (
-      <Suspense fallback={<div />}>
-        <QuoteSection quote={data.quote} />
-      </Suspense>
-    ),
+    element: <QuoteSection quote={data.quote} />,
   });
 
   data.customSections
@@ -223,23 +144,20 @@ export default function Home() {
         enabled: section.enabled,
         id: section.id,
         index: section.index,
-        element: (
-          <Suspense fallback={<div />}>
-            <CustomSections section={section} />
-          </Suspense>
-        ),
+        element: <CustomSections section={section} />,
       });
     });
 
   const orderedSections = sectionsToRender.sort((a, b) => a.index - b.index);
+  const googleTag = data.tracking?.googleAnalytics;
 
   return (
     <>
       {/* Google Analytics */}
-      {data.tracking?.googleAnalytics?.enabled && data.tracking.googleAnalytics.googleTag && (
+      {googleTag?.enabled && googleTag.googleTag && (
         <>
           <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${data.tracking.googleAnalytics.googleTag}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleTag.googleTag}`}
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
@@ -247,42 +165,35 @@ export default function Home() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${data.tracking.googleAnalytics.googleTag}');
+              gtag('config', '${googleTag.googleTag}');
             `}
           </Script>
         </>
       )}
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-x-hidden relative">
-        <Suspense fallback={<div />}> 
-          <BackgroundAnimation
-            backgroundX={backgroundX}
-            backgroundY={backgroundY}
-            codeElements={data.codeElements}
-          />
-        </Suspense>
+        <ScrollBackground codeElements={data.codeElements} />
 
         {data.header.enabled && (
           <Navbar
             logo={data.header.logo}
             navLinks={data.header.navLinks}
             socialLinks={data.contact.socialLinks}
-            activeSection={activeSection}
           />
         )}
 
         <main className="relative z-10 pt-20 md:pt-24 pb-12 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-[95%] 2xl:max-w-[1600px] mx-auto w-full">
-          <div className="space-y-10 md:space-y-8"> { /* Added margin between sections - Reduced the margin between sections from here */}
+          <div className="space-y-10 md:space-y-8">
             {orderedSections.map((section) => (
               <React.Fragment key={section.id}>{section.element}</React.Fragment>
             ))}
           </div>
         </main>
 
-        <Suspense fallback={<div />}> 
-          <FooterSection footer={data.footer} />
-        </Suspense>
+        <FooterSection footer={data.footer} />
       </div>
+
+      <VisitTracker tracking={data.tracking} />
     </>
   );
 }

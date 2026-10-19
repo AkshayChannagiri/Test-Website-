@@ -3,8 +3,10 @@ import "./globals.css";
 import { primaryFont } from './config/theme';
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  // Per-route titles and descriptions come from `generateMetadata`, which reads
+  // public/archived/data.json. These are the fallbacks for any route without one.
+  title: "Portfolio",
+  description: "Personal portfolio website.",
 };
 
 export default function RootLayout({

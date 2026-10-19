@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, MotionValue } from "framer-motion";
 import type { PortfolioData } from "../../types/portfolio-data.type";
 

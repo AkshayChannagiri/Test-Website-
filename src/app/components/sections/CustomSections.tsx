@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import React from "react";
 import type { PortfolioData } from "../../types/portfolio-data.type";

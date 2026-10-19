@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useActiveSection } from "../hooks/useActiveSection";
 
 // Define types for the Navbar props
 interface NavItem {
@@ -20,7 +21,6 @@ interface SocialLink {
 }
 
 interface NavbarProps {
-  activeSection: string;
   logo: {
     text: string;
   };
@@ -42,9 +42,10 @@ const iconComponents: { [key: string]: any } = {
   FaDev: require("react-icons/fa").FaDev
 };
 
-const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => {
+const Navbar = ({ logo, navLinks, socialLinks }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const activeSection = useActiveSection(navLinks);
   const desktopLinks = navLinks.filter((link) => link.navEligibleForDesktop);
   const mobileLinks = navLinks.filter((link) => link.navEligibleForMobile);
 
