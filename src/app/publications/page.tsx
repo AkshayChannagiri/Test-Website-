@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import { getPortfolioData } from "../lib/getPortfolioData";
 import { assetPath } from "../lib/assetPath";
+import { socialMeta } from "../lib/socialMeta";
 import PublicationsView from "./PublicationsView";
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getPortfolioData();
+  const title = `${data.publications.title} | ${data.meta.title}`;
+  const description = `All ${data.publications.title.toLowerCase()}`;
 
   return {
-    title: `${data.publications.title} | ${data.meta.title}`,
-    description: `All ${data.publications.title.toLowerCase()}`,
+    title,
+    description,
     icons: data.meta.favicon ? { icon: assetPath(data.meta.favicon) } : undefined,
+    ...socialMeta({ title, description }),
   };
 }
 

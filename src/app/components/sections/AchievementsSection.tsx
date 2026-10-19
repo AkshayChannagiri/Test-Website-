@@ -103,6 +103,8 @@ function CertificationCard({ cert, isFullWidth = false }: CertificationCardProps
 export default function AchievementsSection({ achievements }: AchievementsSectionProps) {
   if (!achievements.enabled) return null;
 
+  const [titleBefore, titleAfter] = achievements.title.split(achievements.highlight);
+
   return (
     <section id="achievements" className="py-12">
       <motion.h2
@@ -112,7 +114,9 @@ export default function AchievementsSection({ achievements }: AchievementsSectio
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        {achievements.highlight} & <span className="text-[#F9F600]">Achievements</span>
+        {titleBefore}
+        <span className="text-[#F9F600]">{achievements.highlight}</span>
+        {titleAfter}
       </motion.h2>
 
       <motion.div

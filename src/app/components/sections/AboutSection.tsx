@@ -3,7 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import { FiDownload } from "react-icons/fi";
+import Link from "next/link";
+import { FiDownload, FiFileText } from "react-icons/fi";
 import TypewriterEffect from "../../functions/TypewriterEffect";
 import { trackDownload } from "../../functions/TrackDownload";
 import { PortfolioData } from "../../types/portfolio-data.type";
@@ -148,6 +149,15 @@ export default function AboutSection({ intro, stats, socialLinks, tracking }: Ab
               <FiDownload className="w-4 h-4" />
               {intro.cta.buttonText}
             </a>
+            )}
+            {Boolean(intro.cta?.cvUrl?.trim()) && (
+            <Link
+              href={intro.cta.cvUrl as string}
+              className="flex items-center gap-2 px-4 py-2 border border-[#E0DC00]/60 rounded-lg text-[#F9F600] font-medium hover:bg-[#E0DC00]/10 transition-all text-sm"
+            >
+              <FiFileText className="w-4 h-4" />
+              View CV
+            </Link>
             )}
             <div className="flex gap-3">
               {socialLinks.map((link: { icon: string; url: string }, index: number) => {

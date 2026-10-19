@@ -60,8 +60,26 @@ export interface ContactFormProps {
 interface NavLink {
   label: string;
   section: string;
+  /** When set, the navbar links to this route instead of scrolling to `#section`. */
+  href?: string;
   navEligibleForDesktop?: boolean;
   navEligibleForMobile?: boolean;
+}
+
+export interface CvConfig {
+  enabled: boolean;
+  /** Shown as the page title, e.g. "Curriculum Vitae". */
+  heading?: string;
+  /** Full name at the top of the CV. Falls back to meta.title. */
+  name?: string;
+  /** Role under the name. Falls back to intro.professional. */
+  headline?: string;
+  /** Profile paragraph. Falls back to intro.description. */
+  summary?: string;
+  /** Extra links for the CV header, on top of contact.socialLinks. */
+  links?: { label: string; url: string }[];
+  /** Shows a draft banner so placeholder content cannot ship unnoticed. */
+  placeholder?: boolean;
 }
 
 interface CustomSectionContent {
@@ -113,9 +131,12 @@ export interface PortfolioData {
       alt: string;
     };
     cta: {
+      /** A downloadable file, e.g. /resume.pdf. */
       resumeUrl: string;
       buttonText: string;
       resumeFileName: string;
+      /** An internal route, e.g. /cv. Renders a "View CV" link. */
+      cvUrl?: string;
     };
   };
   stats: {
@@ -256,5 +277,6 @@ export interface PortfolioData {
     enabled: boolean;
     text: string;
   };
+  cv?: CvConfig;
   tracking: TrackingConfig;
 }

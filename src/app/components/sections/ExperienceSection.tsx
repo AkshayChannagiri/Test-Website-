@@ -2,10 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { PortfolioData } from "../../types/portfolio-data.type";
-import dynamic from "next/dynamic";
-import React, { Suspense } from "react";
-
-const ExperienceTimeline = dynamic(() => import("../ExperienceTimeline"), { ssr: false, loading: () => <div>Loading...</div> });
+import ExperienceTimeline from "../ExperienceTimeline";
 
 interface ExperienceSectionProps {
   experience: PortfolioData["experience"];
@@ -26,9 +23,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
         {experience.title.split(experience.highlight)[0]}
         <span className="text-[#F9F600]"> {experience.highlight}</span>
       </motion.h2>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ExperienceTimeline experiences={experience.items} />
-      </Suspense>
+      <ExperienceTimeline experiences={experience.items} />
     </section>
   );
 } 

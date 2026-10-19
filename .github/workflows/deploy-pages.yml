@@ -30,6 +30,9 @@ jobs:
         env:
           NEXT_PUBLIC_STATIC_EXPORT: "true"
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # Absolute origin used by sitemap.xml, robots.txt and the OG image.
+          # Update if the site moves to a different host.
+          NEXT_PUBLIC_SITE_URL: https://akshaychannagiri.github.io${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: out

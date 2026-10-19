@@ -6,6 +6,10 @@
  * project site the app is served from /<repo>/, so a raw "/favicon.ico" would
  * resolve to the domain root and 404.
  */
+/** Returns the prefixed path. Accepts a definite string and returns a definite string. */
+export function assetPath(pathname: string): string;
+/** Passes through `undefined` so it can be used inline in optional metadata fields. */
+export function assetPath(pathname?: string): string | undefined;
 export function assetPath(pathname?: string): string | undefined {
   if (!pathname) return undefined;
   // Leave absolute URLs and protocol-relative paths untouched.

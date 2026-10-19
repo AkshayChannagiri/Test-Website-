@@ -2,10 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { PortfolioData } from "../../types/portfolio-data.type";
-import dynamic from "next/dynamic";
-import React, { Suspense } from "react";
-
-const ProjectCarousel = dynamic(() => import("../ProjectCarousel"), { ssr: false, loading: () => <div>Loading...</div> });
+import { ProjectCarousel } from "../ProjectCarousel";
 
 interface ProjectsSectionProps {
   projects: PortfolioData["projects"];
@@ -28,9 +25,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
       </motion.h2>
 
       <div className="relative">
-        <Suspense fallback={<div>Loading...</div>}>
-          <ProjectCarousel projects={projects.items} />
-        </Suspense>
+        <ProjectCarousel projects={projects.items} />
       </div>
     </section>
   );

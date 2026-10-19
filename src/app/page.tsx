@@ -3,10 +3,12 @@ import Script from "next/script";
 import React from "react";
 import { getPortfolioData } from "./lib/getPortfolioData";
 import { assetPath } from "./lib/assetPath";
+import { socialMeta } from "./lib/socialMeta";
 import type { PortfolioData } from "./types/portfolio-data.type";
 import Navbar from "./components/Navbar";
 import ScrollBackground from "./components/ScrollBackground";
 import VisitTracker from "./components/VisitTracker";
+import JsonLd from "./components/JsonLd";
 import { AboutSection } from "./components/sections";
 import SkillsSection from "./components/sections/SkillsSection";
 import PublicationsSection from "./components/sections/PublicationsSection";
@@ -27,11 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: data.meta.title,
     description: data.meta.description,
     icons: data.meta.favicon ? { icon: assetPath(data.meta.favicon) } : undefined,
-    openGraph: {
-      title: data.meta.title,
-      description: data.meta.description,
-      type: "website",
-    },
+    ...socialMeta({ title: data.meta.title, description: data.meta.description }),
   };
 }
 
@@ -195,6 +193,7 @@ export default async function HomePage() {
       </div>
 
       <VisitTracker tracking={data.tracking} />
+      <JsonLd data={data} />
     </>
   );
 }

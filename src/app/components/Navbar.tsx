@@ -1,15 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useActiveSection } from "../hooks/useActiveSection";
+import { iconComponents } from "../utils/iconComponents";
 
 // Define types for the Navbar props
 interface NavItem {
   label: string;
   section: string;
+  /** When set, links to this route instead of scrolling to `#section`. */
+  href?: string;
   navEligibleForDesktop?: boolean;
   navEligibleForMobile?: boolean;
 }
@@ -26,28 +30,17 @@ interface NavbarProps {
   };
   navLinks: NavItem[];
   socialLinks: SocialLink[];
+  /** Where the logo points. Defaults to the homepage about section. */
+  logoHref?: string;
 }
 
-// Icon mapping
-const iconComponents: { [key: string]: any } = {
-  FiGithub: require("react-icons/fi").FiGithub,
-  FiLinkedin: require("react-icons/fi").FiLinkedin,
-  FiTwitter: require("react-icons/fi").FiTwitter,
-  FiMail: require("react-icons/fi").FiMail,
-  SiLeetcode: require("react-icons/si").SiLeetcode,
-  FaGraduationCap: require("react-icons/fa").FaGraduationCap,
-  FaKaggle: require("react-icons/fa").FaKaggle,
-  SiStackoverflow: require("react-icons/si").SiStackoverflow,
-  SiMedium: require("react-icons/si").SiMedium,
-  FaDev: require("react-icons/fa").FaDev
-};
-
-const Navbar = ({ logo, navLinks, socialLinks }: NavbarProps) => {
+const Navbar = ({ logo, navLinks, socialLinks, logoHref = "#about" }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const activeSection = useActiveSection(navLinks);
   const desktopLinks = navLinks.filter((link) => link.navEligibleForDesktop);
   const mobileLinks = navLinks.filter((link) => link.navEligibleForMobile);
+  const hasLogoText = Boolean(logo.text?.trim());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,16 +66,15 @@ const Navbar = ({ logo, navLinks, socialLinks }: NavbarProps) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
-          <motion.a 
-            href="#about"
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className={`text-xl font-bold bg-gradient-to-r from-[#F9F600] to-[#D9F549] bg-clip-text text-transparent`}>
-              {logo.text}
-            </span>
-          </motion.a>
+          {hasLogoText && (
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href={logoHref} className="flex items-center">
+                <span className="text-xl font-bold bg-gradient-to-r from-[#F9F600] to-[#D9F549] bg-clip-text text-transparent">
+                  {logo.text}
+                </span>
+              </Link>
+            </motion.div>
+          )}
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-1">
@@ -95,12 +87,21 @@ const Navbar = ({ logo, navLinks, socialLinks }: NavbarProps) => {
                   whileTap={{ scale: 0.95 }}
                   className="relative"
                 >
-                  <a
-                    href={`#${item.section}`}
-                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? "text-white" : "text-gray-300 hover:text-white"}`}
-                  >
-                    {item.label}
-                  </a>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? "text-white" : "text-gray-300 hover:text-white"}`}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={`#${item.section}`}
+                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? "text-white" : "text-gray-300 hover:text-white"}`}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                   {isActive && (
                     <motion.div
                       layoutId="navIndicator"
@@ -118,7 +119,7 @@ const Navbar = ({ logo, navLinks, socialLinks }: NavbarProps) => {
             {socialLinks.map((social) => {
               const IconComponent = iconComponents[social.icon];
               return (
-                <a 
+                <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
@@ -184,23 +185,38 @@ const Navbar = ({ logo, navLinks, socialLinks }: NavbarProps) => {
                 <div className="p-4 space-y-3">
                   {mobileLinks.map((item, idx) => {
                     const isActive = activeSection === item.section;
+                    const itemClass = `flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "border-[#E0DC00]/70 bg-[#E0DC00]/10 text-white"
+                        : "border-gray-800 bg-gray-900/70 text-gray-300 hover:border-[#E0DC00]/40 hover:text-white"
+                    }`;
                     return (
-                      <motion.a
+                      <motion.div
                         key={item.section}
-                        href={`#${item.section}`}
-                        onClick={() => setMenuOpen(false)}
-                        className={`flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-colors ${
-                          isActive
-                            ? "border-[#E0DC00]/70 bg-[#E0DC00]/10 text-white"
-                            : "border-gray-800 bg-gray-900/70 text-gray-300 hover:border-[#E0DC00]/40 hover:text-white"
-                        }`}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.03 * idx }}
                       >
-                        <span>{item.label}</span>
-                        <FiArrowUpRight className="h-4 w-4 text-[#F9F600]" />
-                      </motion.a>
+                        {item.href ? (
+                          <Link
+                            href={item.href}
+                            onClick={() => setMenuOpen(false)}
+                            className={itemClass}
+                          >
+                            <span>{item.label}</span>
+                            <FiArrowUpRight className="h-4 w-4 text-[#F9F600]" />
+                          </Link>
+                        ) : (
+                          <a
+                            href={`#${item.section}`}
+                            onClick={() => setMenuOpen(false)}
+                            className={itemClass}
+                          >
+                            <span>{item.label}</span>
+                            <FiArrowUpRight className="h-4 w-4 text-[#F9F600]" />
+                          </a>
+                        )}
+                      </motion.div>
                     );
                   })}
 

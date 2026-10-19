@@ -7,7 +7,7 @@
     "header": {
         "enabled": true,
         "logo": {
-            "text": ""
+            "text": "Akshay C S"
         },
         "navLinks": [
             {
@@ -19,6 +19,13 @@
             {
                 "label": "Skills",
                 "section": "skills",
+                "navEligibleForDesktop": true,
+                "navEligibleForMobile": true
+            },
+            {
+                "label": "CV",
+                "section": "cv",
+                "href": "/cv",
                 "navEligibleForDesktop": true,
                 "navEligibleForMobile": true
             },
@@ -73,7 +80,7 @@
         "enabled": true,
         "tagline": "< Hello, I'm Akshay C S />",
         "professional": "{Full-Stack Developer}",
-        "description": "",
+        "description": "Full-stack developer building scalable web applications with React, Next.js and Node.js, with a focus on cloud infrastructure and applied AI.",
         "avatar": {
             "enabled": false,
             "image": "/akshay-cs-avatar.gif",
@@ -82,7 +89,8 @@
         "cta": {
             "resumeUrl": "",
             "buttonText": "Download Resume",
-            "resumeFileName": ""
+            "resumeFileName": "",
+            "cvUrl": "/cv"
         }
     },
     "stats": {
@@ -144,32 +152,93 @@
     },
     "experience": {
         "index": 4,
-        "enabled": false,
+        "enabled": true,
         "title": "Work Experience",
         "highlight": "Experience",
-        "items": []
+        "items": [
+            {
+                "id": 1,
+                "title": "Full-Stack Developer",
+                "period": "2023 — Present",
+                "company": "Example Corp",
+                "location": "City, Country",
+                "description": [
+                    "Placeholder — describe what you built and the impact it had, e.g. shipped a feature used by N users or cut load time by X%.",
+                    "Placeholder — mention the stack you own end to end and who you worked with."
+                ],
+                "tags": [
+                    "React",
+                    "Next.js",
+                    "Node.js",
+                    "PostgreSQL"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Software Engineer",
+                "period": "2021 — 2023",
+                "company": "Sample Technologies",
+                "location": "Remote",
+                "description": [
+                    "Placeholder — add a second role here, or delete this object to remove the entry."
+                ],
+                "tags": [
+                    "TypeScript",
+                    "Express.js",
+                    "MongoDB",
+                    "AWS"
+                ]
+            }
+        ]
     },
     "education": {
         "index": 5,
-        "enabled": false,
+        "enabled": true,
         "title": "Education",
         "highlight": "Education",
-        "items": []
+        "items": [
+            {
+                "degree": "B.E.",
+                "stream": "Computer Science",
+                "institute": "Sample Institute of Technology",
+                "result": "Result — e.g. CGPA 8.5/10",
+                "duration": "2017 — 2021",
+                "location": "City, Country"
+            }
+        ]
     },
     "projects": {
         "index": 6,
-        "enabled": false,
+        "enabled": true,
         "title": "Featured Projects",
         "highlight": "Projects",
-        "items": []
+        "items": [
+            {
+                "title": "Placeholder Project",
+                "description": "Placeholder — one or two lines on what this project does and why you built it.",
+                "githubLink": "https://github.com/AkshayChannagiri",
+                "technologies": [
+                    "Next.js",
+                    "TypeScript"
+                ],
+                "type": "Web App"
+            }
+        ]
     },
     "achievements": {
         "index": 7,
-        "enabled": false,
+        "enabled": true,
         "title": "Achievements & Certifications",
         "highlight": "Achievements",
         "description": [],
-        "certifications": []
+        "certifications": [
+            {
+                "name": "Placeholder Certification",
+                "issuer": "Example Issuer",
+                "icon": "",
+                "url": ""
+            }
+        ]
     },
     "testimonials": {
         "index": 8,
@@ -183,9 +252,9 @@
         "enabled": true,
         "title": "Get In Touch",
         "highlight": "Contact",
-        "email": "",
+        "email": "hello@example.com",
         "phone": "",
-        "location": "",
+        "location": "City, Country",
         "socialLinks": [
             {
                 "name": "GitHub",
@@ -240,6 +309,15 @@
         "index": 200,
         "enabled": true,
         "text": "The best way to predict the future is to invent it."
+    },
+    "cv": {
+        "enabled": true,
+        "heading": "Curriculum Vitae",
+        "name": "Akshay C S",
+        "headline": "Full-Stack Developer & AI Enthusiast",
+        "summary": "Full-stack developer building scalable web applications with React, Next.js and Node.js, with a focus on cloud infrastructure and applied AI. Placeholder summary — replace in public/archived/data.json.",
+        "links": [],
+        "placeholder": true
     },
     "footer": {
         "enabled": true,

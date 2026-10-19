@@ -65,3 +65,24 @@ body {
   scrollbar-width: thin;
   scrollbar-color: rgb(249, 246, 0) rgb(17, 24, 39);
 }
+
+/* Print: the site is dark, but a CV needs to land on white paper.
+   Page size and margins live here because Tailwind utilities cannot express @page. */
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  /* Nothing that only makes sense on screen should reach the printer. */
+  .no-print {
+    display: none !important;
+  }
+}
