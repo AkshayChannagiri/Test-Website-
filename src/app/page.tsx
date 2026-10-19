@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import React from "react";
 import { getPortfolioData } from "./lib/getPortfolioData";
+import { assetPath } from "./lib/assetPath";
 import type { PortfolioData } from "./types/portfolio-data.type";
 import Navbar from "./components/Navbar";
 import ScrollBackground from "./components/ScrollBackground";
@@ -25,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: data.meta.title,
     description: data.meta.description,
-    icons: data.meta.favicon ? { icon: data.meta.favicon } : undefined,
+    icons: data.meta.favicon ? { icon: assetPath(data.meta.favicon) } : undefined,
     openGraph: {
       title: data.meta.title,
       description: data.meta.description,

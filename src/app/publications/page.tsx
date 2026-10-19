@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getPortfolioData } from "../lib/getPortfolioData";
+import { assetPath } from "../lib/assetPath";
 import PublicationsView from "./PublicationsView";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -8,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${data.publications.title} | ${data.meta.title}`,
     description: `All ${data.publications.title.toLowerCase()}`,
-    icons: data.meta.favicon ? { icon: data.meta.favicon } : undefined,
+    icons: data.meta.favicon ? { icon: assetPath(data.meta.favicon) } : undefined,
   };
 }
 
