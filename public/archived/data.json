@@ -1,13 +1,13 @@
 {
     "meta": {
-        "title": "Akshay C S - Portfolio",
+        "title": "Akshay Channagiri - Portfolio",
         "description": "Full-Stack Developer & AI Enthusiast building scalable applications.",
         "favicon": "/favicon.ico"
     },
     "header": {
         "enabled": true,
         "logo": {
-            "text": "Akshay C S"
+            "text": "Akshay Channagiri"
         },
         "navLinks": [
             {
@@ -78,13 +78,13 @@
     "intro": {
         "index": 1,
         "enabled": true,
-        "tagline": "< Hello, I'm Akshay C S />",
+        "tagline": "< Hello, I'm Akshay Channagiri />",
         "professional": "{Full-Stack Developer}",
         "description": "Full-stack developer building scalable web applications with React, Next.js and Node.js, with a focus on cloud infrastructure and applied AI.",
         "avatar": {
             "enabled": false,
             "image": "/akshay-cs-avatar.gif",
-            "alt": "Akshay C S 3D Avatar"
+            "alt": "Akshay Channagiri 3D Avatar"
         },
         "cta": {
             "resumeUrl": "",
@@ -313,7 +313,7 @@
     "cv": {
         "enabled": true,
         "heading": "Curriculum Vitae",
-        "name": "Akshay C S",
+        "name": "Akshay Channagiri",
         "headline": "Full-Stack Developer & AI Enthusiast",
         "summary": "Full-stack developer building scalable web applications with React, Next.js and Node.js, with a focus on cloud infrastructure and applied AI. Placeholder summary — replace in public/archived/data.json.",
         "links": [],
@@ -321,7 +321,7 @@
     },
     "footer": {
         "enabled": true,
-        "text": "© {year} Akshay C S. All rights reserved."
+        "text": "© {year} Akshay Channagiri. All rights reserved."
     },
     "tracking": {
         "enabled": false,
