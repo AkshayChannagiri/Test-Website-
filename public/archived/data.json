@@ -260,6 +260,11 @@
                 "name": "GitHub",
                 "url": "https://github.com/AkshayChannagiri",
                 "icon": "FiGithub"
+            },
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/akshay-channagiri-8251ab442",
+                "icon": "FiLinkedin"
             }
         ]
     },
